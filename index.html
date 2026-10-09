@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#ff5fa2">
+<title>PinkPlay by SK ♡ Fun With Friends</title>
+<style>
+:root{--pink:#ff5fa2;--hot:#e83e8c;--pale:#fff0f7;--ink:#51253c;--muted:#94677e;--white:#fff}
+*{box-sizing:border-box}
+body{margin:0;font-family:system-ui,-apple-system,Segoe UI,sans-serif;color:var(--ink);background:radial-gradient(circle at top left,#ffe1ef,transparent 35%),linear-gradient(145deg,#fff8fc,#ffeaf4);min-height:100vh}
+button,input{font:inherit}
+button{cursor:pointer;border:0}
+.wrap{max-width:1000px;margin:auto;padding:22px 16px 48px}
+header{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:22px}
+.brand{font-size:clamp(1.6rem,5vw,2.4rem);font-weight:900;letter-spacing:-1px;color:var(--hot)}
+.brand span{color:#ff9bc5}
+.tag{color:var(--muted);font-size:.9rem}
+.hero{background:linear-gradient(135deg,#ff6aa9,#ff9bc5);color:white;padding:28px 22px;border-radius:28px;box-shadow:0 14px 35px #e83e8c2b;position:relative;overflow:hidden}
+.hero:after{content:"♡";position:absolute;right:15px;top:-35px;font-size:150px;color:#ffffff26;transform:rotate(12deg)}
+.hero h1{font-size:clamp(1.8rem,6vw,3rem);line-height:1.05;margin:0 0 10px;max-width:650px}
+.hero p{margin:0;max-width:560px;color:#fff5fa}
+.section-title{margin:28px 2px 14px;font-size:1.25rem}
+.games{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px}
+.game-card{background:#fff;border:1px solid #f8d4e5;border-radius:22px;padding:18px;text-align:left;box-shadow:0 7px 20px #7c2b4d0a;transition:transform .15s,box-shadow .15s;color:var(--ink)}
+.game-card:hover{transform:translateY(-3px);box-shadow:0 12px 25px #7c2b4d16}
+.emoji{width:52px;height:52px;border-radius:17px;background:var(--pale);display:grid;place-items:center;font-size:1.8rem;margin-bottom:12px}
+.game-card h3{margin:0 0 5px;font-size:1.05rem}
+.game-card p{margin:0;color:var(--muted);font-size:.87rem;line-height:1.4}
+.panel{display:none;background:white;border:1px solid #f6cfe1;border-radius:24px;padding:22px;margin-top:20px;box-shadow:0 12px 30px #7c2b4d0b}
+.panel.active{display:block}
+.panel-head{display:flex;justify-content:space-between;align-items:center;gap:12px}
+.panel h2{margin:0;font-size:1.45rem}
+.close{background:#fff0f7;color:#a72e68;border-radius:50%;width:38px;height:38px;font-size:1.25rem}
+.muted{color:var(--muted)}
+.primary,.secondary{padding:12px 17px;border-radius:14px;font-weight:750}
+.primary{background:var(--hot);color:white;box-shadow:0 6px 15px #e83e8c33}
+.secondary{background:#fff0f7;color:#a72e68}
+.actions{display:flex;flex-wrap:wrap;gap:9px;margin-top:15px}
+.result{margin-top:15px;background:#fff2f8;border:1px dashed #f1a9ca;border-radius:17px;padding:16px;line-height:1.55}
+.field{display:block;width:100%;padding:12px 13px;border:1px solid #efbfd6;border-radius:13px;margin:9px 0;color:var(--ink);background:#fffafd}
+.options{display:grid;gap:9px;margin-top:14px}
+.option{background:#fff5fa;border:1px solid #f4c4db;border-radius:13px;padding:12px;text-align:left;color:var(--ink)}
+.option:hover{background:#ffe2ef}
+.balloon-area{min-height:200px;background:#fff6fa;border-radius:18px;margin-top:15px;display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap;padding:15px}
+.balloon{font-size:2.7rem;background:transparent;animation:float 1.8s ease-in-out infinite;padding:4px}
+.balloon:nth-child(2n){animation-delay:.3s}.balloon:nth-child(3n){animation-delay:.7s}
+@keyframes float{50%{transform:translateY(-9px)}}
+footer{text-align:center;margin-top:30px;color:var(--muted);font-size:.85rem}
+@media(min-width:680px){.games{grid-template-columns:repeat(4,minmax(0,1fr))}.hero{padding:36px}}
+@media(max-width:390px){.games{gap:9px}.game-card{padding:14px}.panel{padding:16px}.tag{font-size:.78rem}}
+</style>
+</head>
+<body>
+<main class="wrap">
+<header><div><div class="brand">PinkPlay <span>by SK ♡</span></div><div class="tag">Your little corner of fun</div></div><button class="secondary" id="shareTop">↗ Share</button></header>
+<section class="hero"><h1>A little fun goes a long way ✨</h1><p>Pick a game, challenge your friends, and make a tiny memory. No account needed.</p></section>
+<h2 class="section-title">Choose your game 💗</h2>
+<section class="games">
+<button class="game-card" data-game="love"><div class="emoji">💘</div><h3>Love Meter</h3><p>A playful compatibility score</p></button>
+<button class="game-card" data-game="friend"><div class="emoji">🫂</div><h3>Friend Quiz</h3><p>How well do you know me?</p></button>
+<button class="game-card" data-game="truth"><div class="emoji">🎯</div><h3>Truth or Dare</h3><p>Pick a random fun prompt</p></button>
+<button class="game-card" data-game="balloon"><div class="emoji">🎈</div><h3>Pop the Balloon</h3><p>Tap balloons to score points</p></button>
+</section>
+<section class="panel" id="panel" aria-live="polite">
+<div class="panel-head"><h2 id="panelTitle">Game</h2><button class="close" id="close" aria-label="Close game">×</button></div>
+<div id="gameContent"></div>
+</section>
+<footer>PinkPlay by SK · Made with ♡ · Play kindly and keep it fun.</footer>
+</main>
+<script>
+const panel=document.querySelector('#panel'), title=document.querySelector('#panelTitle'), content=document.querySelector('#gameContent');
+let balloonScore=0, balloonTimer=null;
+const prompts=[
+ ['Truth','What tiny thing always makes you smile?'],['Dare','Send a friend your best silly emoji combo.'],
+ ['Truth','What song have you had on repeat lately?'],['Dare','Describe your day using only three emojis.'],
+ ['Truth','What is one skill you wish you could learn instantly?'],['Dare','Give someone a genuine compliment today.'],
+ ['Truth','What is your funniest harmless habit?'],['Dare','Make up a 5-second victory dance.']
+];
+function showGame(which){
+ clearInterval(balloonTimer); panel.classList.add('active'); panel.scrollIntoView({behavior:'smooth',block:'nearest'});
+ if(which==='love'){title.textContent='💘 Love Meter';content.innerHTML=`<p class="muted">Just for laughs — this score isn't a real measure of a relationship.</p><label for="name1">Your name</label><input class="field" id="name1" maxlength="30" placeholder="Type a name"><label for="name2">Their name</label><input class="field" id="name2" maxlength="30" placeholder="Type another name"><button class="primary" id="calculate">Reveal our vibe ✨</button><div id="result"></div>`;
+ document.querySelector('#calculate').onclick=()=>{const a=document.querySelector('#name1').value.trim(),b=document.querySelector('#name2').value.trim(),r=document.querySelector('#result');if(!a||!b){r.innerHTML='<div class="result">Enter both names first 💗</div>';return}let s=0;for(const ch of (a+'♡'+b).toLowerCase())s=(s*31+ch.charCodeAt(0))>>>0;s=s%101;const lines=s>84?'Magical main-character energy ✨':s>64?'Cute vibes and good laughs 💕':s>39?'A fun duo with room to grow 🌷':'Best enjoyed as a playful result 🌈';r.innerHTML=`<div class="result"><strong>${escapeHTML(a)} + ${escapeHTML(b)}: ${s}%</strong><br>${lines}<br><small>For fun only — real connections are about kindness and communication.</small></div>`};
+ }else if(which==='friend'){title.textContent='🫂 Friend Quiz';content.innerHTML=`<p class="muted">Answer these quick questions and get a friendly result.</p><div id="quiz"></div><div id="quizResult"></div>`;renderQuiz();
+ }else if(which==='truth'){title.textContent='🎯 Truth or Dare';content.innerHTML=`<p class="muted">Choose your vibe. Skip any prompt you don't like.</p><div class="actions"><button class="primary" id="truthBtn">Truth 💬</button><button class="primary" id="dareBtn">Dare ⚡</button><button class="secondary" id="randomBtn">Surprise me ✨</button></div><div id="prompt"></div>`;document.querySelector('#truthBtn').onclick=()=>pickPrompt('Truth');document.querySelector('#dareBtn').onclick=()=>pickPrompt('Dare');document.querySelector('#randomBtn').onclick=()=>pickPrompt('Random');
+ }else if(which==='balloon'){title.textContent='🎈 Pop the Balloon';content.innerHTML=`<p class="muted">Pop as many balloons as you can in 15 seconds!</p><div><strong>Score: <span id="score">0</span></strong> · Time: <span id="time">15</span>s</div><div class="balloon-area" id="balloonArea"><span class="muted">Tap Start to play!</span></div><div class="actions"><button class="primary" id="start">Start game 🎈</button></div><div id="balloonResult"></div>`;document.querySelector('#start').onclick=startBalloons;
+ }
+}
+function escapeHTML(s){return s.replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+const quizQuestions=[{q:'Your ideal hangout?',a:['A cozy chat ☕','An adventure 🌈','Memes all day 😂']},{q:'A friend needs cheering up. You…',a:['Listen and support 💗','Make them laugh 😄','Ask what they need 🌷']},{q:'Pick a vibe:',a:['Soft and calm 🌸','Chaotic fun 🎉','Creative mode 🎨']}];
+let quizIndex=0,quizAnswers=[];
+function renderQuiz(){const el=document.querySelector('#quiz');if(quizIndex>=quizQuestions.length){const score=quizAnswers.reduce((x,y)=>x+y,0);document.querySelector('#quizResult').innerHTML=`<div class="result"><strong>Your friend vibe: ${score<2?'Sweet Listener 💗':score<5?'Fun Companion 🎉':'Golden Friend 🌟'}</strong><br>Thanks for playing! Every friendship is different and special.</div><button class="secondary" id="again">Play again</button>`;document.querySelector('#again').onclick=()=>{quizIndex=0;quizAnswers=[];document.querySelector('#quizResult').innerHTML='';renderQuiz()};el.innerHTML='';return}
+const q=quizQuestions[quizIndex];el.innerHTML=`<p><strong>${quizIndex+1}/${quizQuestions.length} · ${q.q}</strong></p><div class="options">${q.a.map((a,i)=>`<button class="option" data-answer="${i}">${a}</button>`).join('')}</div>`;el.querySelectorAll('[data-answer]').forEach(b=>b.onclick=()=>{quizAnswers.push(Number(b.dataset.answer));quizIndex++;renderQuiz()})}
+function pickPrompt(type){const list=type==='Random'?prompts:prompts.filter(p=>p[0]===type);const p=list[Math.floor(Math.random()*list.length)];document.querySelector('#prompt').innerHTML=`<div class="result"><strong>${p[0]} ✨</strong><br>${p[1]}</div>`}
+function startBalloons(){clearInterval(balloonTimer);balloonScore=0;let time=15;const area=document.querySelector('#balloonArea'),score=document.querySelector('#score'),timer=document.querySelector('#time'),result=document.querySelector('#balloonResult');score.textContent='0';timer.textContent=time;result.innerHTML='';area.innerHTML='';document.querySelector('#start').disabled=true;document.querySelector('#start').textContent='Playing…';function add(){area.innerHTML='';for(let i=0;i<Math.min(5,2+Math.floor(Math.random()*4));i++){const b=document.createElement('button');b.className='balloon';b.textContent=['🎈','💗','🎈','🩷'][Math.floor(Math.random()*4)];b.setAttribute('aria-label','Pop balloon');b.onclick=()=>{balloonScore++;score.textContent=balloonScore;b.remove();if(!area.children.length)add()};area.appendChild(b)}}add();balloonTimer=setInterval(()=>{time--;timer.textContent=time;if(time<=0){clearInterval(balloonTimer);area.innerHTML='<span style="font-size:2rem">🎉</span>';result.innerHTML=`<div class="result">Time's up! You scored <strong>${balloonScore}</strong> points. Nice tapping! 💗</div>`;document.querySelector('#start').disabled=false;document.querySelector('#start').textContent='Play again ↻'}},1000)}
+document.querySelectorAll('[data-game]').forEach(b=>b.addEventListener('click',()=>showGame(b.dataset.game)));
+document.querySelector('#close').onclick=()=>{clearInterval(balloonTimer);panel.classList.remove('active')};
+async function share(){const data={title:'PinkPlay by SK ♡',text:'Come play these cute mini games with me! 💗',url:location.href};try{if(navigator.share)await navigator.share(data);else if(navigator.clipboard){await navigator.clipboard.writeText(location.href);alert('Website link copied! Share it with your friends 💗')}else prompt('Copy your website link:',location.href)}catch(e){if(e.name!=='AbortError')alert('You can copy the page link from your browser address bar.')}}
+document.querySelector('#shareTop').onclick=share;
+</script>
+</body>
+</html>
